@@ -12,7 +12,7 @@ RUN source /var/www/test_task/venv/bin/activate
 
 COPY requirements.txt /var/wwwtest_task/
 COPY .  /var/www/test_task/
-RUN pip install -r /var/wwwtest_task/requirements.txt
+RUN pip install -r /var/www/test_task/requirements.txt
 
 EXPOSE 80
 RUN gunicorn --bind 0.0.0.0:80 flask_app:application
