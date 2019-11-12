@@ -10,7 +10,7 @@ RUN pip install virtualenv
 RUN virtualenv /var/www/test_task/venv
 RUN source /var/www/test_task/venv/bin/activate
 
-COPY requirements.txt /var/wwwtest_task/
+COPY requirements.txt /var/www/test_task/
 COPY .  /var/www/test_task/
 RUN pip install -r /var/www/test_task/requirements.txt
 
