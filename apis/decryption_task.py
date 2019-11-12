@@ -25,7 +25,7 @@ class Decrypt(Resource):
     :params: 'passphrase' and 'message'
 
     :response: 
-        'decrypted_message', 200 (Success)
+        {'decrypted_message': 'message decrypted using given passphrase'}, 200 (Success)
         'error_message', 400 (Failure/Error)
 
     """
@@ -58,10 +58,7 @@ class Decrypt(Resource):
         return "Unknown error in decrypting the message", 400
 
     def remove_keys(self):
-        try:
-            os.system('rm {}'.format(KEY))
-        except Exception as err:
-            print("Keys does not exits")
+        os.system('rm {}'.format(KEY))
 
         return True
 
@@ -69,7 +66,7 @@ class Decrypt(Resource):
         data = gpg.gen_key_input(
             name_email=ADMIN_EMAIL,
             passphrase=passphrase)
-        
+
         return gpg.gen_key(data)
 
     def import_keys(self):

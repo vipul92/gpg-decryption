@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 
 BASE_HOST = "0.0.0.0"
 BASE_PORT = 8000
