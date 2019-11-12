@@ -1,0 +1,11 @@
+Dockerfile
+.DS_Store
+README.md
+.vscode
+*/__pycache__
+__pycache__/*
+venv
+venv/*
+*.sock
+*.pyc
+wsgi.py
