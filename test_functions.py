@@ -5,7 +5,10 @@ import unittest
 from apis import decryption_task as dt
 import settings
 
+GPG_HOME = getattr(settings, "BASE_DIR", "") + "/gpghome"
 KEY = getattr(settings, "KEY", "")
+
+os.system('mkdir -p gpghome')
 
 request_data = {
 "message": "-----BEGIN PGP MESSAGE-----\nVersion: GnuPG v2\njA0ECQMCVady3RUyJw3X0kcBF+zdkfZOMhISoYBRwR3uk3vNv+TEg+rJnp4/yYISpEoI2S82c\nDiCNBIVAYWB8WKPtH2R2YSussKhpSJ4mFgqyOA01uwroA===KvJQ\n-----END PGP MESSAGE-----",
@@ -14,7 +17,7 @@ request_data = {
 
 decrypt = dt.Decrypt()
 
-gpg = dt.gpg
+gpg = gnupg.GPG(gnupghome=GPG_HOME)
 
 
 class TestFunctions(unittest.TestCase):
